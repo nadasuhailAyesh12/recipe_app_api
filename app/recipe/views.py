@@ -9,6 +9,7 @@ from recipe.serializers import (
     RecipeSerializer,
     TagSerializer)
 from core.models import (
+    Ingredient,
     Recipe,
     Tag
     )
@@ -40,6 +41,19 @@ class TagViewSet(
 
     serializer_class = TagSerializer
     queryset = Tag.objects.all()
+    authentication_classes = [TokenAuthentication]
+    permission_classes = [IsAuthenticated]
+
+    def get_queryset(self):
+        return self.queryset.filter(user=self.request.user).order_by('-name')
+
+
+class IngredientViewSet(
+    mixins.ListModelMixin,
+    viewsets.GenericViewSet
+):
+    serializer_class = TagSerializer
+    queryset = Ingredient.objects.all()
     authentication_classes = [TokenAuthentication]
     permission_classes = [IsAuthenticated]
 
