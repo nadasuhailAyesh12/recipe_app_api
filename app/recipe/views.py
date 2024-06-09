@@ -49,8 +49,9 @@ class TagViewSet(
 
 
 class IngredientViewSet(
+    mixins.UpdateModelMixin,
     mixins.ListModelMixin,
-    viewsets.GenericViewSet
+    viewsets.GenericViewSet,
 ):
     serializer_class = TagSerializer
     queryset = Ingredient.objects.all()
