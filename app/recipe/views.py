@@ -1,3 +1,9 @@
+from drf_spectacular.utils import (
+    extend_schema_view,
+    extend_schema,
+    OpenApiParameter,
+    OpenApiTypes,
+)
 from rest_framework import (
     viewsets,
     mixins,
@@ -21,6 +27,22 @@ from core.models import (
     )
 
 
+@extend_schema_view(
+    list=extend_schema(
+        parameters=[
+            OpenApiParameter(
+                'tags',
+                OpenApiTypes.STR,
+                description='Comma seprated list of tag IDs to filter'
+                ),
+            OpenApiParameter(
+                'ingredients',
+                OpenApiTypes.STR,
+                description='Comma seprated list of ingredient IDs to filter'
+            ),
+        ]
+    )
+)
 class RecipeViewSet(viewsets.ModelViewSet):
     serializer_class = RecipeDetailSerializer
     authentication_classes = [TokenAuthentication]
