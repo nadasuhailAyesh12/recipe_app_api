@@ -67,9 +67,9 @@ To stop the running containers, use:
 ### API Endpoints
 The application includes endpoints for managing recipes, ingredients, and tags. There is public and private endpoints.For testing endpoints
 and know how to use each one you can go to the swagger documentation below
-locally by hitting:
+- locally by hitting:
 ```http://127.0.0.1:8000/api/docs/```
-or by go to the aws deployed link :
+- or by go to the aws deployed link :
 ```http://ec2-51-20-8-74.eu-north-1.compute.amazonaws.com/api/docs/```
 
 ### Note on API testing
