@@ -49,7 +49,7 @@ cd your-repo-name
 ```docker-compose up --build```
 
 ### Access the application
-```http://127.0.0.1:8000```
+```http://127.0.0.1:8000/api/docs```
 
 ### Making and Running Migrations
 If you need to make migrations and apply database migrations, run the following commands:
